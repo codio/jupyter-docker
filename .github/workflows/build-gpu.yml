@@ -25,6 +25,7 @@ env:
   REPOSITORY_NAME: jupyter-docker
   IMAGE_NAME: codio/codio-jupyter
   TAG_PREFIX: gpu-cuda
+  ECR_REGISTRY: public.ecr.aws/o0g3m8o6
 
 jobs:
   build-and-push:
@@ -63,7 +64,7 @@ jobs:
       - name: Set image tags
         id: meta
         run: |
-          ECR_REGISTRY="${{ steps.login-ecr.outputs.registry }}"
+          ECR_REGISTRY="${{ env.ECR_REGISTRY }}"
           SHA_SHORT=${{ env.TAG_PREFIX }}-$(echo ${{ github.sha }} | cut -c1-7)
 
           if [ "${{ github.event_name }}" == "pull_request" ]; then
@@ -94,8 +95,8 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           builder: ga-builder
-          cache-from: type=registry,ref=${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:cache
-          cache-to: type=registry,mode=max,image-manifest=true,oci-mediatypes=true,ref=${{ steps.login-ecr.outputs.registry }}/${{ env.IMAGE_NAME }}:cache
+          cache-from: type=registry,ref=${{ steps.meta.outputs.ecr_registry }}/${{ env.IMAGE_NAME }}:cache
+          cache-to: type=registry,mode=max,image-manifest=true,oci-mediatypes=true,ref=${{ steps.meta.outputs.ecr_registry }}/${{ env.IMAGE_NAME }}:cache
 
       - name: Image summary
         if: github.event_name != 'pull_request'
