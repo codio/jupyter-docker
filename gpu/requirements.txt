@@ -1,12 +1,12 @@
---extra-index-url https://download.pytorch.org/whl/cu130
+--extra-index-url https://download.pytorch.org/whl/cu121
 
 torch
 torchvision
 torchaudio
 
 # Hugging Face Libraries
-transformers==4.37.2
-huggingface_hub<0.21
+transformers>=4.38.0
+huggingface_hub>=0.21.0
 datasets
 accelerate
 sentencepiece
