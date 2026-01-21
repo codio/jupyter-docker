@@ -48,10 +48,9 @@ jobs:
           role-to-assume: arn:aws:iam::878986216776:role/Github/GithubECRPublicUploadRole_${{ env.REPOSITORY_NAME }}
           role-session-name: GithubAction
 
-      - name: Login to Amazon ECR Public
-        id: login-ecr-public
-        run: |
-          aws ecr-public get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin public.ecr.aws
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
 
       - name: Set image tags
         id: meta
