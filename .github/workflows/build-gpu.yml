@@ -109,7 +109,7 @@ jobs:
             echo ""
             echo "**Tags:**"
             echo "- \`${{ steps.meta.outputs.image_tag }}\`"
-            echo "- \`${{ steps.meta.outputs.timestamp | default('Timestamp tag is not available for PR') }}\`"
+            echo "- \`${{ steps.meta.outputs.timestamp || 'Timestamp tag is not available for PR' }}\`"
             echo "- \`${{ steps.meta.outputs.sha_short }}\`"
             echo ""
             echo "**Pull command:**"
