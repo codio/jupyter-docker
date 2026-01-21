@@ -99,9 +99,9 @@ jobs:
           cache-to: type=registry,mode=max,image-manifest=true,oci-mediatypes=true,ref=${{ steps.meta.outputs.ecr_registry }}/${{ env.IMAGE_NAME }}:cache
 
       - name: Image summary
-        if: github.event_name != 'pull_request'
         run: |
           echo "### Docker Image Published :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "event name: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Registry:** ${{ steps.meta.outputs.ecr_registry }}" >> $GITHUB_STEP_SUMMARY
           echo "**Image:** ${IMAGE_NAME}" >> $GITHUB_STEP_SUMMARY
