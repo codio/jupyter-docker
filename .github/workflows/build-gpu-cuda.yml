@@ -5,14 +5,14 @@ on:
     branches:
       - master
     paths:
-      - 'gpu/**'
-      - '.github/workflows/build-gpu.yml'
+      - 'gpu-cuda/**'
+      - '.github/workflows/build-gpu-cuda.yml'
   pull_request:
     branches:
       - master
     paths:
-      - 'gpu/**'
-      - '.github/workflows/build-gpu.yml'
+      - 'gpu-cuda/**'
+      - '.github/workflows/build-gpu-cuda.yml'
   workflow_dispatch:
     inputs:
       tag:
@@ -91,7 +91,7 @@ jobs:
         uses: docker/build-push-action@v5
         timeout-minutes: 30
         with:
-          context: ./gpu
+          context: ./gpu-cuda
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           builder: ga-builder
