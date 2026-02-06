@@ -1,0 +1,43 @@
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+torch
+torchvision
+torchaudio
+
+# Hugging Face Libraries
+transformers>=4.38.0
+huggingface_hub>=0.21.0
+datasets
+accelerate
+sentencepiece
+tokenizers
+safetensors
+
+# Data Science Libraries
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+scipy
+
+# Deep Learning Utilities
+tqdm
+wandb
+tensorboard
+
+# NLP & LLM Tools
+nltk
+spacy
+tiktoken
+einops
+
+# Jupyter Extensions
+ipywidgets
+jupyter-contrib-nbextensions
+
+# Other Utilities
+Pillow
+requests
+pyyaml
+python-dotenv
