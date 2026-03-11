@@ -1,0 +1,27 @@
+
+nbgrader
+# Data Science Libraries
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+scipy
+statsmodels
+sympy
+# NLP & LLM Tools
+nltk
+spacy
+tiktoken
+einops
+
+# Jupyter Extensions
+ipywidgets
+jupyter-contrib-nbextensions
+
+# Other Utilities
+Pillow
+requests
+pyyaml
+python-dotenv
+plotly

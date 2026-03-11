@@ -14,20 +14,9 @@ Docker image for Jupyter Notebook with PyTorch CUDA support and LLM/Data Science
 
 ## GitHub Actions Setup
 
-### AWS IAM Role Configuration
-The workflow uses OIDC to authenticate with AWS. Ensure you have:
-1. An IAM role named `GithubECRUploadRole_jupyter-docker` in account `878986216776`
-2. Trust relationship configured for GitHub OIDC provider
-3. Permissions to push to ECR Public
-
-### GitHub Secrets
-Add this secret to your repository (Settings → Secrets and variables → Actions):
-- `ECR_REGISTRY` - Your ECR public registry URL (e.g., `public.ecr.aws/your-alias`)
-
 ### Workflow Triggers
-- Push to `master` or `main` branch with changes in `gpu/` directory
-- Pull requests (builds but doesn't push)
-- Manual trigger via workflow_dispatch
+- Push to `master` branch with changes in `gpu-cuda/` directory
+- Pull requests (excludes timestamped tags)
 
 ## Running the Image
 
@@ -35,16 +24,16 @@ Add this secret to your repository (Settings → Secrets and variables → Actio
 ```bash
 docker run --gpus all -p 8888:8888 \
   -v $(pwd)/notebooks:/home/jovyan/work \
-  public.ecr.aws/your-alias/jupyter-gpu:latest
+  public.ecr.aws/o0g3m8o6/codio-jupyter:gpu-cuda-latest
 ```
 
 ### Pull from ECR
 ```bash
 # Pull image
-docker pull public.ecr.aws/your-alias/jupyter-gpu:latest
+docker pull public.ecr.aws/o0g3m8o6/codio-jupyter:gpu-cuda-latest
 
 # Or use specific version
-docker pull public.ecr.aws/your-alias/jupyter-gpu:20260120-123456
+docker pull public.ecr.aws/o0g3m8o6/codio-jupyter:gpu-cuda-20260120
 ```
 
 ## Local Development
@@ -52,14 +41,14 @@ docker pull public.ecr.aws/your-alias/jupyter-gpu:20260120-123456
 ### Build locally
 ```bash
 cd gpu
-docker build -t jupyter-gpu:latest .
+docker build -t codio-jupyter:gpu-cuda-latest .
 ```
 
 ### Test locally
 ```bash
 docker run --gpus all -p 8888:8888 \
   -v $(pwd)/notebooks:/home/jovyan/work \
-  jupyter-gpu:latest
+  codio-jupyter:gpu-cuda-latest
 ```
 
 ## Customization

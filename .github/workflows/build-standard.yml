@@ -1,16 +1,16 @@
-name: Build and Push GPU CUDA Image
+name: Build and Push Standard Image
 on:
   push:
     branches:
       - master
     paths:
-      - 'gpu-cuda/**'
+      - 'standard/**'
       - '.github/workflows/build.yml'
   pull_request:
     branches:
       - master
     paths:
-      - 'gpu-cuda/**'
+      - 'standard/**'
       - '.github/workflows/build.yml'
   workflow_dispatch:
     inputs:
@@ -23,4 +23,4 @@ jobs:
   call-build:
     uses: ./.github/workflows/build.yml
     with:
-      prefix: gpu-cuda
+      prefix: standard
