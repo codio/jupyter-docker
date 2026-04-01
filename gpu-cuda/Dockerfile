@@ -20,11 +20,7 @@ USER ${NB_UID}
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-RUN pip install jupyter-collaboration && \
-  pip uninstall -y jupyter-server-ydoc && \
-  pip install jupyter-server-ydoc-codio && \
-  pip uninstall -y jupyter-docprovider && \
-  pip install jupyter-docprovider-codio
+RUN pip install jupyter-collaboration-codio
 
 # Expose Jupyter port
 EXPOSE 8888
