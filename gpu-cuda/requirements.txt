@@ -41,3 +41,5 @@ Pillow
 requests
 pyyaml
 python-dotenv
+
+opencv-python-headless 
