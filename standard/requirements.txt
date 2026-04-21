@@ -26,3 +26,5 @@ requests
 pyyaml
 python-dotenv
 plotly
+
+opencv-python-headless 
