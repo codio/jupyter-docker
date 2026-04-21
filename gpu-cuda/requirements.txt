@@ -36,6 +36,7 @@ einops
 ipywidgets
 jupyter-contrib-nbextensions
 jupyterlab-v4-codio-ext
+jupyter-collaboration-codio
 
 # Other Utilities
 Pillow
