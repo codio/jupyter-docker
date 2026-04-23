@@ -21,9 +21,20 @@ on:
 
 jobs:
   call-build:
+    if: ${{ !vars.USE_GH }}
     uses: ./.github/workflows/build.yml
     permissions:
       id-token: write
       contents: read
+    with:
+      prefix: standard
+
+  call-build-gh:
+    if: ${{ vars.USE_GH == 'true' }}
+    uses: ./.github/workflows/build_gh.yml
+    permissions:
+      id-token: write
+      contents: read
+      packages: write
     with:
       prefix: standard
