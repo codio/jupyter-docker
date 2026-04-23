@@ -32,6 +32,13 @@ jobs:
         run: |
           docker buildx create --name ga-builder --use
 
+      - name: Log in to the Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set image tags
         id: meta
         run: |
