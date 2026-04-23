@@ -26,7 +26,6 @@ jobs:
     permissions:
       id-token: write
       contents: read
-      packages: write
     with:
       prefix: gpu-cuda
 
