@@ -22,5 +22,8 @@ on:
 jobs:
   call-build:
     uses: ./.github/workflows/build.yml
+    permissions:
+      id-token: write
+      contents: read
     with:
       prefix: gpu-cuda
