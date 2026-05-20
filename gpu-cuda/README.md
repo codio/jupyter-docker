@@ -24,16 +24,16 @@ Docker image for Jupyter Notebook with PyTorch CUDA support and LLM/Data Science
 ```bash
 docker run --gpus all -p 8888:8888 \
   -v $(pwd)/notebooks:/home/jovyan/work \
-  public.ecr.aws/o0g3m8o6/codio-jupyter:gpu-cuda-latest
+  public.ecr.aws/o0g3m8o6/codio/codio-jupyter:gpu-cuda-latest
 ```
 
 ### Pull from ECR
 ```bash
 # Pull image
-docker pull public.ecr.aws/o0g3m8o6/codio-jupyter:gpu-cuda-latest
+docker pull public.ecr.aws/o0g3m8o6/codio/codio-jupyter:gpu-cuda-latest
 
 # Or use specific version
-docker pull public.ecr.aws/o0g3m8o6/codio-jupyter:gpu-cuda-20260120
+docker pull public.ecr.aws/o0g3m8o6/codio/codio-jupyter:gpu-cuda-20260120
 ```
 
 ## Local Development
