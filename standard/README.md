@@ -16,16 +16,16 @@ Docker image for Jupyter Notebook.
 ```bash
 docker run --gpus all -p 8888:8888 \
   -v $(pwd)/notebooks:/home/jovyan/work \
-  public.ecr.aws/o0g3m8o6/codio-jupyter:standard-latest
+  public.ecr.aws/o0g3m8o6/codio/codio-jupyter:standard-latest
 ```
 
 ### Pull from ECR
 ```bash
 # Pull image
-docker pull public.ecr.aws/o0g3m8o6/codio-jupyter:standard-latest
+docker pull public.ecr.aws/o0g3m8o6/codio/codio-jupyter:standard-latest
 
 # Or use specific version
-docker pull public.ecr.aws/o0g3m8o6/codio-jupyter:standard-20260120
+docker pull public.ecr.aws/o0g3m8o6/codio/codio-jupyter:standard-20260120
 ```
 
 ## Local Development
@@ -45,3 +45,8 @@ docker run --gpus all -p 8888:8888 \
 
 ## Customization
 Edit `requirements.txt` to add or modify Python packages, then push to trigger the workflow.
+
+sudo docker build -t jupyter-docker-codio .
+
+sudo docker run -p 8888:8888 -v $(pwd)/notebooks:/home/jovyan/work jupyter-docker-codio
+
