@@ -16,8 +16,8 @@ USER ${NB_UID}
 COPY --chown=${NB_UID}:${NB_GID} requirements.txt /tmp/
 RUN pip install --no-cache-dir -r /tmp/requirements.txt
 
-RUN pip install --force-reinstall --no-cache-dir -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ "jupyterlab-v4-codio-ext==0.1.26"
-RUN jupyterlab-v4-codio-ext-cli --env "https://test1-codio.com"
+RUN pip install --force-reinstall --no-cache-dir -i https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple/ "jupyterlab-v4-codio-ext==0.1.28"
+RUN jupyterlab-v4-codio-ext-cli env "https://test2-codio.com"
 
 # Expose Jupyter port
 EXPOSE 8888
